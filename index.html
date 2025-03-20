@@ -5,6 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My India Games</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .game-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        .game-card {
+            width: 150px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            background: #f9f9f9;
+            transition: 0.3s;
+        }
+        .game-card:hover {
+            background: #e0e0e0;
+        }
+        .game-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .game-card a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            display: block;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -13,9 +49,7 @@
     
     <main>
         <h2>Select a Game to Play</h2>
-        <div class="game-list">
-            <ul id="game-links"></ul>
-        </div>
+        <div class="game-list" id="game-container"></div>
     </main>
     
     <footer>
@@ -24,25 +58,32 @@
 
     <script>
         let games = [
-            { title: "Speed Master", url: "https://play.famobi.com/speed-master" },
-            { title: "Yeti Sensation", url: "https://play.famobi.com/yeti-sensation" },
-            { title: "Train Miner", url: "https://play.famobi.com/train-miner" },
-            { title: "Stack Smash", url: "https://play.famobi.com/stack-smash" },
-            { title: "Knife Rain", url: "https://play.famobi.com/knife-rain" },
-            { title: "Giant Rush", url: "https://play.famobi.com/giant-rush" }
+            { title: "Speed Master", url: "https://play.famobi.com/speed-master", img: "https://imgur.com/a/game1.jpg" },
+            { title: "Yeti Sensation", url: "https://play.famobi.com/yeti-sensation", img: "https://imgur.com/a/game2.jpg" },
+            { title: "Train Miner", url: "https://play.famobi.com/train-miner", img: "https://imgur.com/a/game3.jpg" },
+            { title: "Stack Smash", url: "https://play.famobi.com/stack-smash", img: "https://imgur.com/a/game4.jpg" },
+            { title: "Knife Rain", url: "https://play.famobi.com/knife-rain", img: "https://imgur.com/a/game5.jpg" },
+            { title: "Giant Rush", url: "https://play.famobi.com/giant-rush", img: "https://imgur.com/a/game6.jpg" }
         ];
 
-        let gameList = document.getElementById("game-links");
+        let gameContainer = document.getElementById("game-container");
 
         games.forEach((game) => {
-            let listItem = document.createElement("li");
+            let gameCard = document.createElement("div");
+            gameCard.classList.add("game-card");
+
+            let gameImg = document.createElement("img");
+            gameImg.src = game.img;
+            gameImg.alt = game.title;
+
             let gameLink = document.createElement("a");
-            gameLink.textContent = game.title;
             gameLink.href = game.url;
+            gameLink.textContent = game.title;
             gameLink.target = "_blank"; // নতুন ট্যাবে খুলবে
 
-            listItem.appendChild(gameLink);
-            gameList.appendChild(listItem);
+            gameCard.appendChild(gameImg);
+            gameCard.appendChild(gameLink);
+            gameContainer.appendChild(gameCard);
         });
     </script>
 </body>
