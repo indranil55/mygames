@@ -5,42 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My India Games</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        .game-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
-        .game-card {
-            width: 150px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            text-align: center;
-            background: #f9f9f9;
-            transition: 0.3s;
-        }
-        .game-card:hover {
-            background: #e0e0e0;
-        }
-        .game-card img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
-        .game-card a {
-            text-decoration: none;
-            color: black;
-            font-weight: bold;
-            display: block;
-            margin-top: 5px;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -49,42 +13,55 @@
     
     <main>
         <h2>Select a Game to Play</h2>
-        <div class="game-list" id="game-container"></div>
+        <div class="game-list">
+            
+            <!-- Adding 300 games dynamically -->
+            <script>
+                let games = [
+                    "speed-master", "yeti-sensation", "train-miner", "stack-smash", "knife-rain", "giant-rush", "freecell-solitaire-classic", "2cars", "rival-rush", "cannon-balls-3d",
+                    "western-sniper", "garden-tales", "solitaire-classic", "bubble-shooter", "parking-fury", "mahjong-titans", "moto-x3m", "basketball-legends", "tetris", "snake-game",
+                    "tic-tac-toe", "checkers", "chess-mania", "car-parking", "fishing-frenzy", "soccer-stars", "fruit-ninja", "word-search", "ninja-run", "robo-battle",
+                    "monster-truck", "drift-racing", "space-invaders", "flappy-bird", "cookie-clicker", "jigsaw-puzzle", "hidden-objects", "2048", "bubble-pop", "tower-defense",
+                    "angry-shooters", "archery-mania", "doodle-jump", "jungle-adventure", "haunted-house", "zombie-survival", "super-mario", "pacman-classic", "spider-solitaire", "bejeweled-blitz",
+                    "temple-run", "subway-surfers", "bike-racing", "fast-lane", "panda-run", "lego-racers", "nfs-underground", "real-football", "bowling-king", "stickman-fight",
+                    "dinosaur-run", "boxing-champion", "ping-pong", "fidget-spinner", "roller-coaster", "escape-room", "maze-runner", "airplane-simulator", "bus-parking", "golf-challenge",
+                    "pool-8-ball", "heli-rescue", "bmx-stunts", "extreme-mountain", "ice-hockey", "carrom-board", "table-tennis", "rugby-rush", "darts-master", "cricket-worldcup",
+                    "baseball-league", "formula-race", "street-basketball", "sniper-mission", "extreme-offroad", "city-builder", "bridge-constructor", "farm-simulator", "train-conductor", "hotel-manager",
+                    "pizza-delivery", "tattoo-salon", "hair-stylist", "fashion-designer", "cooking-mania", "music-band", "robot-wars", "castle-defense", "fishing-champion", "diving-challenge"
+                ];
+                
+                for(let i = 100; i <= 300; i++) {
+                    games.push(`game-${i}`);
+                }
+                
+                let gameList = document.querySelector(".game-list");
+                
+                games.forEach((game, index) => {
+                    let gameTitle = document.createElement("h3");
+                    gameTitle.textContent = `Game ${index + 1}: ${game.replace(/-/g, ' ').toUpperCase()}`;
+                    
+                    let gameImage = document.createElement("img");
+                    gameImage.src = `https://games.cdn.famobi.com/${game}/cover.jpg`;
+                    gameImage.alt = game.replace(/-/g, ' ').toUpperCase();
+                    gameImage.width = 200;
+                    gameImage.style.display = "block";
+                    
+                    let gameFrame = document.createElement("iframe");
+                    gameFrame.src = `https://play.famobi.com/${game}`;
+                    gameFrame.width = "100%";
+                    gameFrame.height = "500px";
+                    
+                    gameList.appendChild(gameTitle);
+                    gameList.appendChild(gameImage);
+                    gameList.appendChild(gameFrame);
+                });
+            </script>
+            
+        </div>
     </main>
     
     <footer>
         <p>&copy; 2025 My India Games. All Rights Reserved.</p>
     </footer>
-
-    <script>
-        let games = [
-            { title: "Speed Master", url: "https://play.famobi.com/speed-master", img: "https://imgur.com/a/game1.jpg" },
-            { title: "Yeti Sensation", url: "https://play.famobi.com/yeti-sensation", img: "https://imgur.com/a/game2.jpg" },
-            { title: "Train Miner", url: "https://play.famobi.com/train-miner", img: "https://imgur.com/a/game3.jpg" },
-            { title: "Stack Smash", url: "https://play.famobi.com/stack-smash", img: "https://imgur.com/a/game4.jpg" },
-            { title: "Knife Rain", url: "https://play.famobi.com/knife-rain", img: "https://imgur.com/a/game5.jpg" },
-            { title: "Giant Rush", url: "https://play.famobi.com/giant-rush", img: "https://imgur.com/a/game6.jpg" }
-        ];
-
-        let gameContainer = document.getElementById("game-container");
-
-        games.forEach((game) => {
-            let gameCard = document.createElement("div");
-            gameCard.classList.add("game-card");
-
-            let gameImg = document.createElement("img");
-            gameImg.src = game.img;
-            gameImg.alt = game.title;
-
-            let gameLink = document.createElement("a");
-            gameLink.href = game.url;
-            gameLink.textContent = game.title;
-            gameLink.target = "_blank"; // নতুন ট্যাবে খুলবে
-
-            gameCard.appendChild(gameImg);
-            gameCard.appendChild(gameLink);
-            gameContainer.appendChild(gameCard);
-        });
-    </script>
 </body>
 </html>
