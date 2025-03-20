@@ -15,7 +15,6 @@
         <h2>Select a Game to Play</h2>
         <div class="game-list">
             
-            <!-- Adding 300 games dynamically -->
             <script>
                 let games = [
                     "speed-master", "yeti-sensation", "train-miner", "stack-smash", "knife-rain", "giant-rush", "freecell-solitaire-classic", "2cars", "rival-rush", "cannon-balls-3d",
@@ -30,13 +29,16 @@
                     "pizza-delivery", "tattoo-salon", "hair-stylist", "fashion-designer", "cooking-mania", "music-band", "robot-wars", "castle-defense", "fishing-champion", "diving-challenge"
                 ];
                 
-                for(let i = 100; i <= 300; i++) {
+                for(let i = 101; i <= 300; i++) {
                     games.push(`game-${i}`);
                 }
                 
                 let gameList = document.querySelector(".game-list");
                 
                 games.forEach((game, index) => {
+                    let gameContainer = document.createElement("div");
+                    gameContainer.classList.add("game-container");
+                    
                     let gameTitle = document.createElement("h3");
                     gameTitle.textContent = `Game ${index + 1}: ${game.replace(/-/g, ' ').toUpperCase()}`;
                     
@@ -44,16 +46,17 @@
                     gameImage.src = `https://games.cdn.famobi.com/${game}/cover.jpg`;
                     gameImage.alt = game.replace(/-/g, ' ').toUpperCase();
                     gameImage.width = 200;
-                    gameImage.style.display = "block";
+                    gameImage.onerror = function() { this.style.display = "none"; };
                     
                     let gameFrame = document.createElement("iframe");
                     gameFrame.src = `https://play.famobi.com/${game}`;
                     gameFrame.width = "100%";
-                    gameFrame.height = "500px";
+                    gameFrame.height = "600px";
                     
-                    gameList.appendChild(gameTitle);
-                    gameList.appendChild(gameImage);
-                    gameList.appendChild(gameFrame);
+                    gameContainer.appendChild(gameTitle);
+                    gameContainer.appendChild(gameImage);
+                    gameContainer.appendChild(gameFrame);
+                    gameList.appendChild(gameContainer);
                 });
             </script>
             
