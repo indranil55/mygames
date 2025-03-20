@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My India Games</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to My India Games</h1>
+    </header>
+    
+    <main>
+        <h2>Select a Game to Play</h2>
+        <div class="game-list">
+            
+            <!-- Adding 100 games dynamically -->
+            <script>
+                let games = [
+                    "speed-master", "yeti-sensation", "train-miner", "stack-smash", "knife-rain", "giant-rush", "freecell-solitaire-classic", "2cars", "rival-rush", "cannon-balls-3d",
+                    "western-sniper", "garden-tales", "solitaire-classic", "bubble-shooter", "parking-fury", "mahjong-titans", "moto-x3m", "basketball-legends", "tetris", "snake-game",
+                    "tic-tac-toe", "checkers", "chess-mania", "car-parking", "fishing-frenzy", "soccer-stars", "fruit-ninja", "word-search", "ninja-run", "robo-battle",
+                    "monster-truck", "drift-racing", "space-invaders", "flappy-bird", "cookie-clicker", "jigsaw-puzzle", "hidden-objects", "2048", "bubble-pop", "tower-defense",
+                    "angry-shooters", "archery-mania", "doodle-jump", "jungle-adventure", "haunted-house", "zombie-survival", "super-mario", "pacman-classic", "spider-solitaire", "bejeweled-blitz",
+                    "temple-run", "subway-surfers", "bike-racing", "fast-lane", "panda-run", "lego-racers", "nfs-underground", "real-football", "bowling-king", "stickman-fight",
+                    "dinosaur-run", "boxing-champion", "ping-pong", "fidget-spinner", "roller-coaster", "escape-room", "maze-runner", "airplane-simulator", "bus-parking", "golf-challenge",
+                    "pool-8-ball", "heli-rescue", "bmx-stunts", "extreme-mountain", "ice-hockey", "carrom-board", "table-tennis", "rugby-rush", "darts-master", "cricket-worldcup",
+                    "baseball-league", "formula-race", "street-basketball", "sniper-mission", "extreme-offroad", "city-builder", "bridge-constructor", "farm-simulator", "train-conductor", "hotel-manager",
+                    "pizza-delivery", "tattoo-salon", "hair-stylist", "fashion-designer", "cooking-mania", "music-band", "robot-wars", "castle-defense", "fishing-champion", "diving-challenge"
+                ];
+                
+                let gameList = document.querySelector(".game-list");
+                
+                games.forEach((game, index) => {
+                    let gameTitle = document.createElement("h3");
+                    gameTitle.textContent = `Game ${index + 1}: ${game.replace(/-/g, ' ').toUpperCase()}`;
+                    
+                    let gameFrame = document.createElement("iframe");
+                    gameFrame.src = `https://play.famobi.com/${game}`;
+                    gameFrame.width = "100%";
+                    gameFrame.height = "500px";
+                    
+                    gameList.appendChild(gameTitle);
+                    gameList.appendChild(gameFrame);
+                });
+            </script>
+            
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 My India Games. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
