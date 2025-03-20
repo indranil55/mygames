@@ -17,21 +17,46 @@
             
             <script>
                 let games = [
-                    "speed-master", "yeti-sensation", "train-miner", "stack-smash", "knife-rain", "giant-rush", "freecell-solitaire-classic", "2cars", "rival-rush", "cannon-balls-3d",
-                    "western-sniper", "garden-tales", "solitaire-classic", "bubble-shooter", "parking-fury", "mahjong-titans", "moto-x3m", "basketball-legends", "tetris", "snake-game",
-                    "tic-tac-toe", "checkers", "chess-mania", "car-parking", "fishing-frenzy", "soccer-stars", "fruit-ninja", "word-search", "ninja-run", "robo-battle",
-                    "monster-truck", "drift-racing", "space-invaders", "flappy-bird", "cookie-clicker", "jigsaw-puzzle", "hidden-objects", "2048", "bubble-pop", "tower-defense",
-                    "angry-shooters", "archery-mania", "doodle-jump", "jungle-adventure", "haunted-house", "zombie-survival", "super-mario", "pacman-classic", "spider-solitaire", "bejeweled-blitz",
-                    "temple-run", "subway-surfers", "bike-racing", "fast-lane", "panda-run", "lego-racers", "nfs-underground", "real-football", "bowling-king", "stickman-fight",
-                    "dinosaur-run", "boxing-champion", "ping-pong", "fidget-spinner", "roller-coaster", "escape-room", "maze-runner", "airplane-simulator", "bus-parking", "golf-challenge",
-                    "pool-8-ball", "heli-rescue", "bmx-stunts", "extreme-mountain", "ice-hockey", "carrom-board", "table-tennis", "rugby-rush", "darts-master", "cricket-worldcup",
-                    "baseball-league", "formula-race", "street-basketball", "sniper-mission", "extreme-offroad", "city-builder", "bridge-constructor", "farm-simulator", "train-conductor", "hotel-manager",
-                    "pizza-delivery", "tattoo-salon", "hair-stylist", "fashion-designer", "cooking-mania", "music-band", "robot-wars", "castle-defense", "fishing-champion", "diving-challenge"
+                    { name: "Speed Master", link: "speed-master" },
+                    { name: "Yeti Sensation", link: "yeti-sensation" },
+                    { name: "Train Miner", link: "train-miner" },
+                    { name: "Stack Smash", link: "stack-smash" },
+                    { name: "Knife Rain", link: "knife-rain" },
+                    { name: "Giant Rush", link: "giant-rush" },
+                    { name: "Solitaire Classic", link: "solitaire-classic" },
+                    { name: "Bubble Shooter", link: "bubble-shooter" },
+                    { name: "Parking Fury", link: "parking-fury" },
+                    { name: "Moto X3M", link: "moto-x3m" },
+                    { name: "Tetris", link: "tetris" },
+                    { name: "Snake Game", link: "snake-game" },
+                    { name: "Tic Tac Toe", link: "tic-tac-toe" },
+                    { name: "Checkers", link: "checkers" },
+                    { name: "Chess Mania", link: "chess-mania" },
+                    { name: "Car Parking", link: "car-parking" },
+                    { name: "Fishing Frenzy", link: "fishing-frenzy" },
+                    { name: "Soccer Stars", link: "soccer-stars" },
+                    { name: "Fruit Ninja", link: "fruit-ninja" },
+                    { name: "Word Search", link: "word-search" },
+                    { name: "Ninja Run", link: "ninja-run" },
+                    { name: "Robo Battle", link: "robo-battle" },
+                    { name: "Monster Truck", link: "monster-truck" },
+                    { name: "Drift Racing", link: "drift-racing" },
+                    { name: "Space Invaders", link: "space-invaders" },
+                    { name: "Flappy Bird", link: "flappy-bird" },
+                    { name: "Cookie Clicker", link: "cookie-clicker" },
+                    { name: "Jigsaw Puzzle", link: "jigsaw-puzzle" },
+                    { name: "Hidden Objects", link: "hidden-objects" },
+                    { name: "2048", link: "2048" },
+                    { name: "Angry Shooters", link: "angry-shooters" },
+                    { name: "Doodle Jump", link: "doodle-jump" },
+                    { name: "Temple Run", link: "temple-run" },
+                    { name: "Subway Surfers", link: "subway-surfers" },
+                    { name: "Bike Racing", link: "bike-racing" },
+                    { name: "Fast Lane", link: "fast-lane" },
+                    { name: "Airplane Simulator", link: "airplane-simulator" },
+                    { name: "Bus Parking", link: "bus-parking" },
+                    { name: "Golf Challenge", link: "golf-challenge" }
                 ];
-                
-                for(let i = 101; i <= 300; i++) {
-                    games.push(`game-${i}`);
-                }
                 
                 let gameList = document.querySelector(".game-list");
                 
@@ -40,16 +65,16 @@
                     gameContainer.classList.add("game-container");
                     
                     let gameTitle = document.createElement("h3");
-                    gameTitle.textContent = `Game ${index + 1}: ${game.replace(/-/g, ' ').toUpperCase()}`;
+                    gameTitle.textContent = `Game ${index + 1}: ${game.name}`;
                     
                     let gameImage = document.createElement("img");
-                    gameImage.src = `https://games.cdn.famobi.com/${game}/cover.jpg`;
-                    gameImage.alt = game.replace(/-/g, ' ').toUpperCase();
+                    gameImage.src = `https://games.cdn.famobi.com/${game.link}/cover.jpg`;
+                    gameImage.alt = game.name;
                     gameImage.width = 200;
                     gameImage.onerror = function() { this.style.display = "none"; };
                     
                     let gameFrame = document.createElement("iframe");
-                    gameFrame.src = `https://play.famobi.com/${game}`;
+                    gameFrame.src = `https://play.famobi.com/${game.link}`;
                     gameFrame.width = "100%";
                     gameFrame.height = "600px";
                     
