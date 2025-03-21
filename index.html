@@ -4,13 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Indranil Crazy Games</title>
-    <script>
-        function showAdAndRedirect() {
-            setTimeout(() => {
-                window.location.href = "https://www.crazygames.com"; // সরাসরি CrazyGames লোড হবে
-            }, 3000); // 3 সেকেন্ড অপেক্ষা করে লোড হবে
-        }
-    </script>
     <style>
         * {
             margin: 0;
@@ -20,8 +13,7 @@
         }
         body {
             text-align: center;
-            background-color: #1e1e1e;
-            color: white;
+            background-color: #f5f5f5;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -36,56 +28,37 @@
         .play-button {
             display: inline-block;
             padding: 15px 25px;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
             color: white;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
+            background: linear-gradient(90deg, #007BFF, #0056b3);
+            border: 2px solid #0044cc;
+            border-radius: 10px;
             text-decoration: none;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.2s;
         }
         .play-button:hover {
-            background-color: #0056b3;
+            background: linear-gradient(90deg, #0056b3, #0044cc);
+            transform: scale(1.1);
         }
-        .header {
-            display: flex;
-            justify-content: space-between;
+        .ad-container {
+            margin-top: 20px;
             width: 100%;
-            padding: 10px;
-            position: absolute;
-            top: 0;
-        }
-        .logo {
-            width: 60px;
-            height: 60px;
-        }
-        .date-time {
-            font-size: 16px;
+            max-width: 728px;
+            min-height: 90px;
+            display: flex;
+            justify-content: center;
         }
     </style>
+    <script>
+        function redirectToCrazyGames() {
+            window.location.href = "https://www.crazygames.com";
+        }
+    </script>
 </head>
 <body>
-
-    <div class="header">
-        <img src="logo.png" alt="Logo" class="logo">
-        <div class="date-time" id="dateTime"></div>
-    </div>
-
     <h1>Play Now Indranil Crazy Games</h1>
-    <button class="play-button" onclick="showAdAndRedirect()">Play Now</button>
-
-    <script>
-        // Date & Time Update Function
-        function updateDateTime() {
-            let now = new Date();
-            let dateTimeString = now.toLocaleString();
-            document.getElementById("dateTime").innerText = dateTimeString;
-        }
-        setInterval(updateDateTime, 1000);
-        updateDateTime();
-    </script>
-
+    <button class="play-button" onclick="redirectToCrazyGames()">Play Now</button>
 </body>
 </html>
