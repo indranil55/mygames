@@ -4,18 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Indranil Crazy Games</title>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
         function showAdAndRedirect() {
             let newTab = window.open("", "_blank"); // নতুন ট্যাব খুলুন
             if (!newTab || newTab.closed || typeof newTab.closed == 'undefined') {
                 alert("Please allow pop-ups to open the game.");
                 return;
-            }
-            
-            // AdSense Ad দেখানোর জন্য
-            if (typeof adsbygoogle !== "undefined") {
-                (adsbygoogle = window.adsbygoogle || []).push({});
             }
 
             // 3 সেকেন্ড অপেক্ষা করে CrazyGames ওপেন করুন
@@ -62,14 +56,6 @@
         .play-button:hover {
             background-color: #0056b3;
         }
-        .ad-container {
-            margin-top: 20px;
-            width: 100%;
-            max-width: 728px;
-            min-height: 90px;
-            display: flex;
-            justify-content: center;
-        }
         .header {
             display: flex;
             justify-content: space-between;
@@ -97,7 +83,8 @@
     <h1>Play Now Indranil Crazy Games</h1>
     <button class="play-button" onclick="showAdAndRedirect()">Play Now</button>
 
-    <!-- Google AdSense Ad -->
+    <!-- Google AdSense Ad (পরে বসানো হবে) -->
+    <!--
     <div class="ad-container">
         <ins class="adsbygoogle"
             style="display:block"
@@ -108,6 +95,7 @@
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
     </div>
+    -->
 
     <script>
         // Date & Time Update Function
