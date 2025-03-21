@@ -3,7 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indranil Crazy Game</title>
+    <title>Indranil Crazy Games</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" onerror="console.error('AdSense script failed to load.')"></script>
+    <script>
+        function showAdAndRedirect() {
+            // AdSense Interstitial Ad (AdMob বা অন্য প্ল্যাটফর্মের কোড যুক্ত করুন)
+            if (window.adsbygoogle && typeof adsbygoogle.push === "function") {
+                try {
+                    adsbygoogle.push({});
+                } catch (error) {
+                    console.error("AdSense error:", error);
+                }
+            } else {
+                console.warn("AdSense not loaded.");
+            }
+            
+            setTimeout(() => {
+                window.open("https://www.crazygames.com", "_blank");
+            }, 3000); // 3 সেকেন্ড পরে গেম ওপেন হবে
+        }
+    </script>
     <style>
         * {
             margin: 0;
@@ -19,9 +38,11 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            padding: 20px;
         }
         h1 {
             margin-bottom: 20px;
+            font-size: 24px;
         }
         .play-button {
             display: inline-block;
@@ -34,16 +55,45 @@
             border-radius: 5px;
             text-decoration: none;
             cursor: pointer;
+            transition: background 0.3s;
         }
         .play-button:hover {
             background-color: #0056b3;
+        }
+        .ad-container {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 728px;
+            min-height: 90px;
+            display: flex;
+            justify-content: center;
         }
     </style>
 </head>
 <body>
 
-    <h1>Play Now Indranil CrazyGames</h1>
-    <a href="https://www.crazygames.com" target="_blank" class="play-button">Play Now</a>
+    <h1>Play Now Indranil Crazy Games</h1>
+    <button class="play-button" onclick="showAdAndRedirect()">Play Now</button>
+
+    <!-- Google AdSense Ad -->
+    <div class="ad-container">
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-xxxxxxxxxxxxxxxx" 
+            data-ad-slot="xxxxxxxxxx"
+            data-ad-format="auto"></ins>
+        <script>
+            if (window.adsbygoogle) {
+                try {
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                } catch (error) {
+                    console.error("AdSense error:", error);
+                }
+            } else {
+                console.warn("AdSense script not available.");
+            }
+        </script>
+    </div>
 
 </body>
 </html>
