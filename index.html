@@ -14,20 +14,31 @@
     <main>
         <h2>Select a Game to Play</h2>
         <div class="game-list">
+            
             <script>
                 let games = [
-                    { name: "Parking Panic", link: "parking-panic", image: "https://games.cdn.famobi.com/image/parking-panic-cover.jpg" },
-                    { name: "Train Miner", link: "train-miner", image: "https://games.cdn.famobi.com/image/train-miner-cover.jpg" },
-                    { name: "Speed Master", link: "speed-master", image: "https://games.cdn.famobi.com/image/speed-master-cover.jpg" },
-                    { name: "Bubble Shooter", link: "bubble-shooter", image: "https://games.cdn.famobi.com/image/bubble-shooter-cover.jpg" },
-                    { name: "Tic Tac Toe", link: "tic-tac-toe", image: "https://games.cdn.famobi.com/image/tic-tac-toe-cover.jpg" },
-                    { name: "2048", link: "2048", image: "https://games.cdn.famobi.com/image/2048-cover.jpg" },
-                    { name: "Chess Mania", link: "chess-mania", image: "https://games.cdn.famobi.com/image/chess-mania-cover.jpg" },
-                    { name: "Car Parking", link: "car-parking", image: "https://games.cdn.famobi.com/image/car-parking-cover.jpg" },
-                    { name: "Moto X3M", link: "moto-x3m", image: "https://games.cdn.famobi.com/image/moto-x3m-cover.jpg" },
-                    { name: "Snake Game", link: "snake-game", image: "https://games.cdn.famobi.com/image/snake-game-cover.jpg" }
+                    { name: "Parking Panic", link: "parking-panic" },
+                    { name: "Speed Master", link: "speed-master" },
+                    { name: "Yeti Sensation", link: "yeti-sensation" },
+                    { name: "Train Miner", link: "train-miner" },
+                    { name: "Stack Smash", link: "stack-smash" },
+                    { name: "Knife Rain", link: "knife-rain" },
+                    { name: "Giant Rush", link: "giant-rush" },
+                    { name: "Solitaire Classic", link: "solitaire-classic" },
+                    { name: "Bubble Shooter", link: "bubble-shooter" },
+                    { name: "Parking Fury", link: "parking-fury" },
+                    { name: "Moto X3M", link: "moto-x3m" },
+                    { name: "Tetris", link: "tetris" },
+                    { name: "Snake Game", link: "snake-game" },
+                    { name: "Tic Tac Toe", link: "tic-tac-toe" },
+                    { name: "Checkers", link: "checkers" },
+                    { name: "Chess Mania", link: "chess-mania" },
+                    { name: "Car Parking", link: "car-parking" },
+                    { name: "Fishing Frenzy", link: "fishing-frenzy" },
+                    { name: "Soccer Stars", link: "soccer-stars" },
+                    { name: "Fruit Ninja", link: "fruit-ninja" }
                 ];
-
+                
                 let gameList = document.querySelector(".game-list");
                 
                 games.forEach((game, index) => {
@@ -37,23 +48,17 @@
                     let gameTitle = document.createElement("h3");
                     gameTitle.textContent = `Game ${index + 1}: ${game.name}`;
                     
-                    let gameImage = document.createElement("img");
-                    gameImage.src = game.image;
-                    gameImage.alt = game.name;
-                    gameImage.width = 200;
-                    gameImage.onerror = function() { this.style.display = "none"; };
-                    
                     let gameFrame = document.createElement("iframe");
                     gameFrame.src = `https://play.famobi.com/${game.link}`;
                     gameFrame.width = "100%";
                     gameFrame.height = "600px";
                     
                     gameContainer.appendChild(gameTitle);
-                    gameContainer.appendChild(gameImage);
                     gameContainer.appendChild(gameFrame);
                     gameList.appendChild(gameContainer);
                 });
             </script>
+            
         </div>
     </main>
     
