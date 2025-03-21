@@ -4,22 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Indranil Crazy Games</title>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" onerror="console.error('AdSense script failed to load.')"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
         function showAdAndRedirect() {
-            if (window.adsbygoogle && typeof adsbygoogle.push === "function") {
-                try {
-                    adsbygoogle.push({});
-                } catch (error) {
-                    console.error("AdSense error:", error);
-                }
-            } else {
-                console.warn("AdSense not loaded.");
+            // AdSense Interstitial Ad (AdMob বা অন্য প্ল্যাটফর্মের কোড যুক্ত করুন)
+            if (typeof adsbygoogle !== "undefined") {
+                (adsbygoogle = window.adsbygoogle || []).push({});
             }
-            
             setTimeout(() => {
                 window.open("https://www.crazygames.com", "_blank");
-            }, 3000);
+            }, 3000); // 3 সেকেন্ড পরে গেম ওপেন হবে
         }
         function updateDateTime() {
             const now = new Date();
@@ -36,26 +30,27 @@
         }
         body {
             text-align: center;
-            background-color: #f5f5f5;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             padding: 20px;
-            position: relative;
+            color: white;
         }
         .header {
-            position: absolute;
-            top: 10px;
-            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 20px;
+            width: 100%;
+            padding: 10px 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
         .logo {
-            height: 50px;
+            height: 60px;
         }
         .date-time {
             font-size: 16px;
@@ -91,12 +86,11 @@
         }
     </style>
 </head>
-<body onload="updateDateTime()">
+<body>
     <div class="header">
-        <img src="logo.png" alt="Logo_20250321_213202_0000.png" class="logo">
-        <div id="dateTime" class="date-time"></div>
+        <img src="logo.png" alt="Logo" class="logo">
+        <div class="date-time" id="dateTime"></div>
     </div>
-    
     <h1>Play Now Indranil Crazy Games</h1>
     <button class="play-button" onclick="showAdAndRedirect()">Play Now</button>
 
@@ -108,15 +102,7 @@
             data-ad-slot="xxxxxxxxxx"
             data-ad-format="auto"></ins>
         <script>
-            if (window.adsbygoogle) {
-                try {
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                } catch (error) {
-                    console.error("AdSense error:", error);
-                }
-            } else {
-                console.warn("AdSense script not available.");
-            }
+            (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
     </div>
 </body>
