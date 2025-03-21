@@ -14,77 +14,65 @@
     <main>
         <h2>Select a Game to Play</h2>
         <div class="game-list">
-            
-            <script>
-                let games = [
-                    { name: "Speed Master", link: "speed-master" },
-                    { name: "Yeti Sensation", link: "yeti-sensation" },
-                    { name: "Train Miner", link: "train-miner" },
-                    { name: "Stack Smash", link: "stack-smash" },
-                    { name: "Knife Rain", link: "knife-rain" },
-                    { name: "Giant Rush", link: "giant-rush" },
-                    { name: "Solitaire Classic", link: "solitaire-classic" },
-                    { name: "Bubble Shooter", link: "bubble-shooter" },
-                    { name: "Parking Fury", link: "parking-fury" },
-                    { name: "Moto X3M", link: "moto-x3m" },
-                    { name: "Tetris", link: "tetris" },
-                    { name: "Snake Game", link: "snake-game" },
-                    { name: "Tic Tac Toe", link: "tic-tac-toe" },
-                    { name: "Checkers", link: "checkers" },
-                    { name: "Chess Mania", link: "chess-mania" },
-                    { name: "Car Parking", link: "car-parking" },
-                    { name: "Fishing Frenzy", link: "fishing-frenzy" },
-                    { name: "Soccer Stars", link: "soccer-stars" },
-                    { name: "Fruit Ninja", link: "fruit-ninja" },
-                    { name: "Word Search", link: "word-search" },
-                    { name: "Ninja Run", link: "ninja-run" },
-                    { name: "Robo Battle", link: "robo-battle" },
-                    { name: "Monster Truck", link: "monster-truck" },
-                    { name: "Drift Racing", link: "drift-racing" },
-                    { name: "Space Invaders", link: "space-invaders" },
-                    { name: "Flappy Bird", link: "flappy-bird" },
-                    { name: "Cookie Clicker", link: "cookie-clicker" },
-                    { name: "Jigsaw Puzzle", link: "jigsaw-puzzle" },
-                    { name: "Hidden Objects", link: "hidden-objects" },
-                    { name: "2048", link: "2048" },
-                    { name: "Angry Shooters", link: "angry-shooters" },
-                    { name: "Doodle Jump", link: "doodle-jump" },
-                    { name: "Temple Run", link: "temple-run" },
-                    { name: "Subway Surfers", link: "subway-surfers" },
-                    { name: "Bike Racing", link: "bike-racing" },
-                    { name: "Fast Lane", link: "fast-lane" },
-                    { name: "Airplane Simulator", link: "airplane-simulator" },
-                    { name: "Bus Parking", link: "bus-parking" },
-                    { name: "Golf Challenge", link: "golf-challenge" }
-                ];
-                
-                let gameList = document.querySelector(".game-list");
-                
-                games.forEach((game, index) => {
-                    let gameContainer = document.createElement("div");
-                    gameContainer.classList.add("game-container");
-                    
-                    let gameTitle = document.createElement("h3");
-                    gameTitle.textContent = `Game ${index + 1}: ${game.name}`;
-                    
-                    let gameImage = document.createElement("img");
-                    gameImage.src = `https://games.cdn.famobi.com/${game.link}/cover.jpg`;
-                    gameImage.alt = game.name;
-                    gameImage.width = 200;
-                    gameImage.onerror = function() { this.style.display = "none"; };
-                    
-                    let gameFrame = document.createElement("iframe");
-                    gameFrame.src = `https://play.famobi.com/${game.link}`;
-                    gameFrame.width = "100%";
-                    gameFrame.height = "600px";
-                    
-                    gameContainer.appendChild(gameTitle);
-                    gameContainer.appendChild(gameImage);
-                    gameContainer.appendChild(gameFrame);
-                    gameList.appendChild(gameContainer);
-                });
-            </script>
-            
+            <h3>Game 1: Speed Master</h3>
+            <iframe src="https://play.famobi.com/speed-master" width="100%" height="600px"></iframe>
+
+            <h3>Game 2: Yeti Sensation</h3>
+            <iframe src="https://play.famobi.com/yeti-sensation" width="100%" height="600px"></iframe>
+
+            <h3>Game 3: Train Miner</h3>
+            <iframe src="https://play.famobi.com/train-miner" width="100%" height="600px"></iframe>
+
+            <h3>Game 4: Stack Smash</h3>
+            <iframe src="https://play.famobi.com/stack-smash" width="100%" height="600px"></iframe>
+
+            <h3>Game 5: Knife Rain</h3>
+            <iframe src="https://play.famobi.com/knife-rain" width="100%" height="600px"></iframe>
+
+            <h3>Game 6: Giant Rush</h3>
+            <iframe src="https://play.famobi.com/giant-rush" width="100%" height="600px"></iframe>
+
+            <h3>Game 7: Solitaire Classic</h3>
+            <iframe src="https://play.famobi.com/solitaire-classic" width="100%" height="600px"></iframe>
+
+            <h3>Game 8: Bubble Shooter</h3>
+            <iframe src="https://play.famobi.com/bubble-shooter" width="100%" height="600px"></iframe>
+
+            <h3>Game 9: Parking Fury</h3>
+            <iframe src="https://play.famobi.com/parking-fury" width="100%" height="600px"></iframe>
+
+            <h3>Game 10: Moto X3M</h3>
+            <iframe src="https://play.famobi.com/moto-x3m" width="100%" height="600px"></iframe>
+
+            <h3>Game 11: Tetris</h3>
+            <iframe src="https://play.famobi.com/tetris" width="100%" height="600px"></iframe>
+
+            <h3>Game 12: Snake Game</h3>
+            <iframe src="https://play.famobi.com/snake-game" width="100%" height="600px"></iframe>
+
+            <h3>Game 13: Tic Tac Toe</h3>
+            <iframe src="https://play.famobi.com/tic-tac-toe" width="100%" height="600px"></iframe>
+
+            <h3>Game 14: Checkers</h3>
+            <iframe src="https://play.famobi.com/checkers" width="100%" height="600px"></iframe>
+
+            <h3>Game 15: Chess Mania</h3>
+            <iframe src="https://play.famobi.com/chess-mania" width="100%" height="600px"></iframe>
+
+            <h3>Game 16: Car Parking</h3>
+            <iframe src="https://play.famobi.com/car-parking" width="100%" height="600px"></iframe>
+
+            <h3>Game 17: Fishing Frenzy</h3>
+            <iframe src="https://play.famobi.com/fishing-frenzy" width="100%" height="600px"></iframe>
+
+            <h3>Game 18: Soccer Stars</h3>
+            <iframe src="https://play.famobi.com/soccer-stars" width="100%" height="600px"></iframe>
+
+            <h3>Game 19: Fruit Ninja</h3>
+            <iframe src="https://play.famobi.com/fruit-ninja" width="100%" height="600px"></iframe>
+
+            <h3>Game 20: Word Search</h3>
+            <iframe src="https://play.famobi.com/word-search" width="100%" height="600px"></iframe>
         </div>
     </main>
     
