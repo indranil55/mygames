@@ -7,7 +7,6 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" onerror="console.error('AdSense script failed to load.')"></script>
     <script>
         function showAdAndRedirect() {
-            // AdSense Interstitial Ad (AdMob বা অন্য প্ল্যাটফর্মের কোড যুক্ত করুন)
             if (window.adsbygoogle && typeof adsbygoogle.push === "function") {
                 try {
                     adsbygoogle.push({});
@@ -20,8 +19,13 @@
             
             setTimeout(() => {
                 window.open("https://www.crazygames.com", "_blank");
-            }, 3000); // 3 সেকেন্ড পরে গেম ওপেন হবে
+            }, 3000);
         }
+        function updateDateTime() {
+            const now = new Date();
+            document.getElementById("dateTime").innerText = now.toLocaleString();
+        }
+        setInterval(updateDateTime, 1000);
     </script>
     <style>
         * {
@@ -39,6 +43,23 @@
             align-items: center;
             height: 100vh;
             padding: 20px;
+            position: relative;
+        }
+        .header {
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .logo {
+            height: 50px;
+        }
+        .date-time {
+            font-size: 16px;
+            font-weight: bold;
         }
         h1 {
             margin-bottom: 20px;
@@ -70,8 +91,12 @@
         }
     </style>
 </head>
-<body>
-
+<body onload="updateDateTime()">
+    <div class="header">
+        <img src="logo.png" alt="Logo_20250321_213202_0000.png" class="logo">
+        <div id="dateTime" class="date-time"></div>
+    </div>
+    
     <h1>Play Now Indranil Crazy Games</h1>
     <button class="play-button" onclick="showAdAndRedirect()">Play Now</button>
 
@@ -94,6 +119,5 @@
             }
         </script>
     </div>
-
 </body>
 </html>
