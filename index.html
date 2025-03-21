@@ -6,16 +6,9 @@
     <title>Indranil Crazy Games</title>
     <script>
         function showAdAndRedirect() {
-            let newTab = window.open("", "_blank"); // নতুন ট্যাব খুলুন
-            if (!newTab || newTab.closed || typeof newTab.closed == 'undefined') {
-                alert("Please allow pop-ups to open the game.");
-                return;
-            }
-
-            // 3 সেকেন্ড অপেক্ষা করে CrazyGames ওপেন করুন
             setTimeout(() => {
-                newTab.location.href = "https://www.crazygames.com";
-            }, 3000);
+                window.location.href = "https://www.crazygames.com"; // সরাসরি CrazyGames লোড হবে
+            }, 3000); // 3 সেকেন্ড অপেক্ষা করে লোড হবে
         }
     </script>
     <style>
@@ -82,20 +75,6 @@
 
     <h1>Play Now Indranil Crazy Games</h1>
     <button class="play-button" onclick="showAdAndRedirect()">Play Now</button>
-
-    <!-- Google AdSense Ad (পরে বসানো হবে) -->
-    <!--
-    <div class="ad-container">
-        <ins class="adsbygoogle"
-            style="display:block"
-            data-ad-client="ca-pub-xxxxxxxxxxxxxxxx" 
-            data-ad-slot="xxxxxxxxxx"
-            data-ad-format="auto"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
-    -->
 
     <script>
         // Date & Time Update Function
