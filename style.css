@@ -17,10 +17,12 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background: black; /* Optional: Black background for better experience */
 }
 
 .game-fullscreen iframe {
-    width: 100%;
-    height: 100%;
+    width: 100vw; /* Full width */
+    height: 100vh; /* Full height */
     border: none;
+    display: block;
 }
