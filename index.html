@@ -20,6 +20,7 @@
             align-items: center;
             height: 100vh;
             padding: 20px;
+            position: relative;
         }
         h1 {
             margin-bottom: 20px;
@@ -31,33 +32,39 @@
             font-size: 20px;
             font-weight: bold;
             color: white;
-            background: linear-gradient(90deg, #007BFF, #0056b3);
-            border: 2px solid #0044cc;
+            background: linear-gradient(45deg, #007bff, #0044cc);
+            border: none;
             border-radius: 10px;
             text-decoration: none;
             cursor: pointer;
             transition: background 0.3s, transform 0.2s;
         }
         .play-button:hover {
-            background: linear-gradient(90deg, #0056b3, #0044cc);
+            background: linear-gradient(45deg, #0056b3, #002288);
             transform: scale(1.1);
         }
-        .ad-container {
-            margin-top: 20px;
-            width: 100%;
-            max-width: 728px;
-            min-height: 90px;
-            display: flex;
-            justify-content: center;
+        .date-time {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
         }
     </style>
     <script>
         function redirectToCrazyGames() {
             window.location.href = "https://www.crazygames.com";
         }
+        function updateDateTime() {
+            const now = new Date();
+            document.getElementById("date-time").innerText = now.toLocaleString();
+        }
+        setInterval(updateDateTime, 1000);
     </script>
 </head>
-<body>
+<body onload="updateDateTime()">
+    <div class="date-time" id="date-time"></div>
     <h1>Play Now Indranil Crazy Games</h1>
     <button class="play-button" onclick="redirectToCrazyGames()">Play Now</button>
 </body>
