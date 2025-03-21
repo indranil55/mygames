@@ -14,67 +14,46 @@
     <main>
         <h2>Select a Game to Play</h2>
         <div class="game-list">
-            
-            <h3>Game 1: Parking Panic</h3>
-            <iframe src="https://play.famobi.com/parking-panic" width="100%" height="600px"></iframe>
+            <script>
+                let games = [
+                    { name: "Parking Panic", link: "parking-panic", image: "https://games.cdn.famobi.com/image/parking-panic-cover.jpg" },
+                    { name: "Train Miner", link: "train-miner", image: "https://games.cdn.famobi.com/image/train-miner-cover.jpg" },
+                    { name: "Speed Master", link: "speed-master", image: "https://games.cdn.famobi.com/image/speed-master-cover.jpg" },
+                    { name: "Bubble Shooter", link: "bubble-shooter", image: "https://games.cdn.famobi.com/image/bubble-shooter-cover.jpg" },
+                    { name: "Tic Tac Toe", link: "tic-tac-toe", image: "https://games.cdn.famobi.com/image/tic-tac-toe-cover.jpg" },
+                    { name: "2048", link: "2048", image: "https://games.cdn.famobi.com/image/2048-cover.jpg" },
+                    { name: "Chess Mania", link: "chess-mania", image: "https://games.cdn.famobi.com/image/chess-mania-cover.jpg" },
+                    { name: "Car Parking", link: "car-parking", image: "https://games.cdn.famobi.com/image/car-parking-cover.jpg" },
+                    { name: "Moto X3M", link: "moto-x3m", image: "https://games.cdn.famobi.com/image/moto-x3m-cover.jpg" },
+                    { name: "Snake Game", link: "snake-game", image: "https://games.cdn.famobi.com/image/snake-game-cover.jpg" }
+                ];
 
-            <h3>Game 2: Speed Master</h3>
-            <iframe src="https://play.famobi.com/speed-master" width="100%" height="600px"></iframe>
-
-            <h3>Game 3: Yeti Sensation</h3>
-            <iframe src="https://play.famobi.com/yeti-sensation" width="100%" height="600px"></iframe>
-
-            <h3>Game 4: Train Miner</h3>
-            <iframe src="https://play.famobi.com/train-miner" width="100%" height="600px"></iframe>
-
-            <h3>Game 5: Stack Smash</h3>
-            <iframe src="https://play.famobi.com/stack-smash" width="100%" height="600px"></iframe>
-
-            <h3>Game 6: Knife Rain</h3>
-            <iframe src="https://play.famobi.com/knife-rain" width="100%" height="600px"></iframe>
-
-            <h3>Game 7: Giant Rush</h3>
-            <iframe src="https://play.famobi.com/giant-rush" width="100%" height="600px"></iframe>
-
-            <h3>Game 8: Solitaire Classic</h3>
-            <iframe src="https://play.famobi.com/solitaire-classic" width="100%" height="600px"></iframe>
-
-            <h3>Game 9: Bubble Shooter</h3>
-            <iframe src="https://play.famobi.com/bubble-shooter" width="100%" height="600px"></iframe>
-
-            <h3>Game 10: Parking Fury</h3>
-            <iframe src="https://play.famobi.com/parking-fury" width="100%" height="600px"></iframe>
-
-            <h3>Game 11: Moto X3M</h3>
-            <iframe src="https://play.famobi.com/moto-x3m" width="100%" height="600px"></iframe>
-
-            <h3>Game 12: Tetris</h3>
-            <iframe src="https://play.famobi.com/tetris" width="100%" height="600px"></iframe>
-
-            <h3>Game 13: Snake Game</h3>
-            <iframe src="https://play.famobi.com/snake-game" width="100%" height="600px"></iframe>
-
-            <h3>Game 14: Tic Tac Toe</h3>
-            <iframe src="https://play.famobi.com/tic-tac-toe" width="100%" height="600px"></iframe>
-
-            <h3>Game 15: Checkers</h3>
-            <iframe src="https://play.famobi.com/checkers" width="100%" height="600px"></iframe>
-
-            <h3>Game 16: Chess Mania</h3>
-            <iframe src="https://play.famobi.com/chess-mania" width="100%" height="600px"></iframe>
-
-            <h3>Game 17: Car Parking</h3>
-            <iframe src="https://play.famobi.com/car-parking" width="100%" height="600px"></iframe>
-
-            <h3>Game 18: Fishing Frenzy</h3>
-            <iframe src="https://play.famobi.com/fishing-frenzy" width="100%" height="600px"></iframe>
-
-            <h3>Game 19: Soccer Stars</h3>
-            <iframe src="https://play.famobi.com/soccer-stars" width="100%" height="600px"></iframe>
-
-            <h3>Game 20: Fruit Ninja</h3>
-            <iframe src="https://play.famobi.com/fruit-ninja" width="100%" height="600px"></iframe>
-
+                let gameList = document.querySelector(".game-list");
+                
+                games.forEach((game, index) => {
+                    let gameContainer = document.createElement("div");
+                    gameContainer.classList.add("game-container");
+                    
+                    let gameTitle = document.createElement("h3");
+                    gameTitle.textContent = `Game ${index + 1}: ${game.name}`;
+                    
+                    let gameImage = document.createElement("img");
+                    gameImage.src = game.image;
+                    gameImage.alt = game.name;
+                    gameImage.width = 200;
+                    gameImage.onerror = function() { this.style.display = "none"; };
+                    
+                    let gameFrame = document.createElement("iframe");
+                    gameFrame.src = `https://play.famobi.com/${game.link}`;
+                    gameFrame.width = "100%";
+                    gameFrame.height = "600px";
+                    
+                    gameContainer.appendChild(gameTitle);
+                    gameContainer.appendChild(gameImage);
+                    gameContainer.appendChild(gameFrame);
+                    gameList.appendChild(gameContainer);
+                });
+            </script>
         </div>
     </main>
     
