@@ -1,92 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Games</title>
-    <style>
-        /* আগের মতোই স্টাইল থাকবে */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { text-align: center; background: linear-gradient(135deg, #1e3c72, #2a5298); display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; position: relative; color: white; }
-        h1 { font-size: 32px; font-weight: bold; margin-bottom: 20px; }
-        .button-group { margin-top: 20px; display: flex; flex-wrap: wrap; justify-content: center; }
-        .game-button { margin: 5px; padding: 12px 20px; font-size: 18px; background: #FF9800; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; }
-        .game-button:hover { background: #e68900; transform: scale(1.05); }
-        .ads-container, .adblock-warning, .loader, .game-container { display: none; margin-top: 20px; }
-        .countdown { font-size: 20px; font-weight: bold; }
-        .game-container { width: 90%; max-width: 900px; height: 500px; }
-        iframe { width: 100%; height: 100%; border: none; }
-        footer { margin-top: 40px; font-size: 14px; opacity: 0.8; }
-        .loader { border: 5px solid #f3f3f3; border-top: 5px solid #FF9800; border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Games</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { text-align: center; background: linear-gradient(135deg, #1e3c72, #2a5298); display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; position: relative; color: white; }
+    h1 { font-size: 32px; font-weight: bold; margin-bottom: 20px; }
+    .button-group { margin-top: 20px; display: flex; flex-wrap: wrap; justify-content: center; }
+    .game-button { margin: 5px; padding: 12px 20px; font-size: 18px; background: #FF9800; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+    .game-button:hover { background: #e68900; transform: scale(1.05); }
+    .ads-container, .adblock-warning, .loader, .game-container { display: none; margin-top: 20px; }
+    .countdown { font-size: 20px; font-weight: bold; }
+    .game-container { width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; background-color: #000; z-index: 9999; }
+    iframe { width: 100%; height: 100%; border: none; }
+    footer { margin-top: 40px; font-size: 14px; opacity: 0.8; }
+    .loader { border: 5px solid #f3f3f3; border-top: 5px solid #FF9800; border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+  </style>
 </head>
 <body>
+  <h1>WELCOME TO GAME PLAY</h1>
 
-    <h1>WELCOME TO GAME PLAY</h1>
+  <div class="button-group" id="gameButtons"></div>
 
-    <div class="button-group" id="gameButtons">
-        <!-- গেম বোতামগুলি এখানে যুক্ত হবে -->
-    </div>
+  <div id="adsContainer" class="ads-container">
+    <p class="countdown">Ad is running... Please wait <span id="timer">5</span> sec</p>
+  </div>
 
-    <div id="adsContainer" class="ads-container">
-        <p class="countdown">Ad is running... Please wait <span id="timer">5</span> sec</p>
-    </div>
+  <div class="adblock-warning" id="adblockWarning">AdBlock Detected! Please disable AdBlock to play the game.</div>
 
-    <div class="adblock-warning" id="adblockWarning">AdBlock Detected! Please disable AdBlock to play the game.</div>
+  <div class="loader" id="gameLoader"></div>
 
-    <div class="loader" id="gameLoader"></div>
+  <div class="game-container" id="gameContainer">
+    <iframe id="gameFrame"></iframe>
+  </div>
 
-    <div class="game-container" id="gameContainer">
-        <iframe id="gameFrame"></iframe>
-    </div>
+  <footer>
+    <p>Developed by Indranil Ruidas</p>
+  </footer>
 
-    <footer>
-        <p>Developed by Indranil Ruidas</p>
-    </footer>
+  <script>
+    const games = [
+      { name: "Om Nom Run", url: "https://play.famobi.com/om-nom-run" },
+      { name: "Happy Wheels", url: "https://spritted.com/en/game/happy-wheels?embed" },
+      { name: "Pinewood Derby", url: "http://boyslife.org/games/online-games/320/pinewood-derby/" },
+      { name: "Four Colors", url: "https://www.onlinegames.io/games/2023/code/four-colors/index.html" }
+    ];
 
-    <script>
-        const games = [
-            { name: "Om Nom Run", url: "https://play.famobi.com/om-nom-run" },
-            { name: "Happy Wheels", url: "https://spritted.com/en/game/happy-wheels?embed" },
-            { name: "Pinewood Derby", url: "http://boyslife.org/games/online-games/320/pinewood-derby/" },
-            { name: "Four Colors", url: "https://www.onlinegames.io/games/2023/code/four-colors/index.html" },
-            // এখানে আরও গেম যুক্ত করুন
-        ];
+    const gameButtonsContainer = document.getElementById("gameButtons");
 
-        const gameButtonsContainer = document.getElementById("gameButtons");
+    games.forEach(game => {
+      const button = document.createElement("button");
+      button.className = "game-button";
+      button.textContent = `Play ${game.name}`;
+      button.onclick = () => playGame(game.url);
+      gameButtonsContainer.appendChild(button);
+    });
 
-        games.forEach(game => {
-            const button = document.createElement("button");
-            button.className = "game-button";
-            button.textContent = `Play ${game.name}`;
-            button.onclick = () => playGame(game.url);
-            gameButtonsContainer.appendChild(button);
-        });
+    function playGame(gameURL) {
+      document.getElementById("adsContainer").style.display = "block";
+      document.getElementById("gameContainer").style.display = "none";
+      document.getElementById("gameLoader").style.display = "none";
 
-        function playGame(gameURL) {
-            document.getElementById("adsContainer").style.display = "block";
-            document.getElementById("gameContainer").style.display = "none";
+      let countdown = 5;
+      document.getElementById("timer").innerText = countdown;
+
+      let timer = setInterval(() => {
+        countdown--;
+        document.getElementById("timer").innerText = countdown;
+        if (countdown === 0) {
+          clearInterval(timer);
+          document.getElementById("adsContainer").style.display = "none";
+          document.getElementById("gameLoader").style.display = "block";
+
+          setTimeout(() => {
             document.getElementById("gameLoader").style.display = "none";
+            const frame = document.getElementById("gameFrame");
+            document.getElementById("gameContainer").style.display = "block";
+            frame.src = gameURL;
 
-            let countdown = 5;
-            document.getElementById("timer").innerText = countdown;
+            // Fullscreen request
+            if (frame.requestFullscreen) {
+              frame.requestFullscreen();
+            } else if (frame.mozRequestFullScreen) {
+              frame.mozRequestFullScreen();
+            } else if (frame.webkitRequestFullscreen) {
+              frame.webkitRequestFullscreen();
+            } else if (frame.msRequestFullscreen) {
+              frame.msRequestFullscreen();
+            }
 
-            let timer = setInterval(() => {
-                countdown--;
-                document.getElementById("timer").innerText = countdown;
-                if (countdown === 0) {
-                    clearInterval(timer);
-                    document.getElementById("adsContainer").style.display = "none";
-                    document.getElementById("gameLoader").style.display = "block";
-                    setTimeout(() => {
-                        document.getElementById("gameLoader").style.display = "none";
-                        document.getElementById("gameContainer").style.display = "block";
-                        document.getElementById("gameFrame").src = gameURL;
-                    }, 1500);
-                }
-            }, 1000);
+          }, 1500);
         }
-    </script>
+      }, 1000);
+    }
+  </script>
 </body>
 </html>
