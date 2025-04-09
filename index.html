@@ -1,4 +1,3 @@
-<!-- শুরু -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +7,9 @@
     <style>
         /* আগের মতোই স্টাইল থাকবে */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { text-align: center; background: linear-gradient(135deg, #1e3c72, #2a5298); display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; padding: 20px; position: relative; color: white; }
+        body { text-align: center; background: linear-gradient(135deg, #1e3c72, #2a5298); display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; position: relative; color: white; }
         h1 { font-size: 32px; font-weight: bold; margin-bottom: 20px; }
-        .button-group { margin-top: 20px; flex-wrap: wrap; display: flex; justify-content: center; }
+        .button-group { margin-top: 20px; display: flex; flex-wrap: wrap; justify-content: center; }
         .game-button { margin: 5px; padding: 12px 20px; font-size: 18px; background: #FF9800; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; }
         .game-button:hover { background: #e68900; transform: scale(1.05); }
         .ads-container, .adblock-warning, .loader, .game-container { display: none; margin-top: 20px; }
@@ -26,11 +25,8 @@
 
     <h1>WELCOME TO GAME PLAY</h1>
 
-    <div class="button-group">
-        <button class="game-button" onclick="playGame('omnom')">Play Om Nom Run</button>
-        <button class="game-button" onclick="playGame('happywheels')">Play Happy Wheels</button>
-        <button class="game-button" onclick="playGame('pinewood')">Play Pinewood Derby</button>
-        <button class="game-button" onclick="playGame('fourcolors')">Play Four Colors</button>
+    <div class="button-group" id="gameButtons">
+        <!-- গেম বোতামগুলি এখানে যুক্ত হবে -->
     </div>
 
     <div id="adsContainer" class="ads-container">
@@ -50,7 +46,25 @@
     </footer>
 
     <script>
-        function playGame(game) {
+        const games = [
+            { name: "Om Nom Run", url: "https://play.famobi.com/om-nom-run" },
+            { name: "Happy Wheels", url: "https://spritted.com/en/game/happy-wheels?embed" },
+            { name: "Pinewood Derby", url: "http://boyslife.org/games/online-games/320/pinewood-derby/" },
+            { name: "Four Colors", url: "https://www.onlinegames.io/games/2023/code/four-colors/index.html" },
+            // এখানে আরও গেম যুক্ত করুন
+        ];
+
+        const gameButtonsContainer = document.getElementById("gameButtons");
+
+        games.forEach(game => {
+            const button = document.createElement("button");
+            button.className = "game-button";
+            button.textContent = `Play ${game.name}`;
+            button.onclick = () => playGame(game.url);
+            gameButtonsContainer.appendChild(button);
+        });
+
+        function playGame(gameURL) {
             document.getElementById("adsContainer").style.display = "block";
             document.getElementById("gameContainer").style.display = "none";
             document.getElementById("gameLoader").style.display = "none";
@@ -68,18 +82,6 @@
                     setTimeout(() => {
                         document.getElementById("gameLoader").style.display = "none";
                         document.getElementById("gameContainer").style.display = "block";
-
-                        let gameURL = "";
-                        if (game === "omnom") {
-                            gameURL = "https://play.famobi.com/om-nom-run";
-                        } else if (game === "happywheels") {
-                            gameURL = "https://spritted.com/en/game/happy-wheels?embed";
-                        } else if (game === "pinewood") {
-                            gameURL = "http://boyslife.org/games/online-games/320/pinewood-derby/";
-                        } else if (game === "fourcolors") {
-                            gameURL = "https://www.onlinegames.io/games/2023/code/four-colors/index.html";
-                        }
-
                         document.getElementById("gameFrame").src = gameURL;
                     }, 1500);
                 }
