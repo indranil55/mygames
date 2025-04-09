@@ -10,7 +10,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { text-align: center; background: linear-gradient(135deg, #1e3c72, #2a5298); display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; padding: 20px; position: relative; color: white; }
         h1 { font-size: 32px; font-weight: bold; margin-bottom: 20px; }
-        .button-group { margin-top: 20px; }
+        .button-group { margin-top: 20px; flex-wrap: wrap; display: flex; justify-content: center; }
         .game-button { margin: 5px; padding: 12px 20px; font-size: 18px; background: #FF9800; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; }
         .game-button:hover { background: #e68900; transform: scale(1.05); }
         .ads-container, .adblock-warning, .loader, .game-container { display: none; margin-top: 20px; }
@@ -30,6 +30,7 @@
         <button class="game-button" onclick="playGame('omnom')">Play Om Nom Run</button>
         <button class="game-button" onclick="playGame('happywheels')">Play Happy Wheels</button>
         <button class="game-button" onclick="playGame('pinewood')">Play Pinewood Derby</button>
+        <button class="game-button" onclick="playGame('fourcolors')">Play Four Colors</button>
     </div>
 
     <div id="adsContainer" class="ads-container">
@@ -75,6 +76,8 @@
                             gameURL = "https://spritted.com/en/game/happy-wheels?embed";
                         } else if (game === "pinewood") {
                             gameURL = "http://boyslife.org/games/online-games/320/pinewood-derby/";
+                        } else if (game === "fourcolors") {
+                            gameURL = "https://www.onlinegames.io/games/2023/code/four-colors/index.html";
                         }
 
                         document.getElementById("gameFrame").src = gameURL;
